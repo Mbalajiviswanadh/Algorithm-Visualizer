@@ -1,6 +1,5 @@
 import { AnimationArrayType } from "@/lib/types";
 
-// Bubble alogorithm
 function runBubbleSort(array: number[], animations: AnimationArrayType) {
   for (let i = 0; i < array.length - 1; i++) {
     for (let j = 0; j < array.length - i - 1; j++) {

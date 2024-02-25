@@ -68,9 +68,7 @@ export const SortingAlgorithmProvider = ({
     const containerHeight = window.innerHeight;
     const maxLineHeight = Math.max(containerHeight - 420, 100);
     for (let i = 0; i < numLines; i++) {
-      tempArray.push(
-        generateRandomNumberFromInterval(100, maxLineHeight - 100)
-      );
+      tempArray.push(generateRandomNumberFromInterval(100, maxLineHeight));
     }
 
     setArrayToSort(tempArray);
@@ -133,6 +131,25 @@ export const SortingAlgorithmProvider = ({
         }
       }, index * inverseSpeed);
     });
+
+    // Pulse aniimations
+    const finalTimeout = animations.length * inverseSpeed;
+
+    setTimeout(() => {
+      Array.from(arrayLines).forEach((line) => {
+        line.classList.add("pulse-animation", "change-line-color");
+        line.classList.remove("default-line-color");
+      });
+
+      setTimeout(() => {
+        Array.from(arrayLines).forEach((line) => {
+          line.classList.remove("pulse-animation", "change-line-color");
+          line.classList.add("default-line-color");
+        });
+        setIsSorting(false);
+        setIsAnimationComplete(true);
+      }, 1000);
+    }, finalTimeout);
   };
 
   const value = {

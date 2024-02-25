@@ -4,7 +4,11 @@ import ThemeSwitch from "./components/ThemeSwitch";
 import { useEffect } from "react";
 import { Slider } from "./components/Input/Slider";
 import { Select } from "./components/Input/Select";
-import { algorithmOptions, generateAnimationArray } from "@/lib/utils";
+import {
+  algorithmOptions,
+  generateAnimationArray,
+  sortingAlgorithmsData,
+} from "@/lib/utils";
 import { SortingAlforithmType } from "@/lib/types";
 import { RxReset } from "react-icons/rx";
 import { FaPlayCircle } from "react-icons/fa";
@@ -90,6 +94,50 @@ export default function Home() {
                   <FaPlayCircle className="text-system-green60 h-8 w-8" />
                 )}
               </button>
+            </div>
+            {/* ----------------------------------DATA of ALGS------------------------------ */}
+            <div className="top-[120%] absolute left-0 w-full">
+              <div className="flex justify-between w-full text-gray-400 p-4 rounded border border-system-purple20 bg-system-purple80 bg-opacity-10 gap-6">
+                {/* -----------------------Title and Description ----------------------------*/}
+                <div className="flex flex-col items-start justify-start w-3/4">
+                  <h3 className="lg:text-lg border-b-2  border-green-500 text-[15px]">
+                    {sortingAlgorithmsData[selectedAlgorithm].title}
+                  </h3>
+                  <p className="lg:text-sm text-[9px] text-justify text-gray-500 pt-2">
+                    {sortingAlgorithmsData[selectedAlgorithm].description}
+                  </p>
+                </div>
+
+                {/* right side time complexities */}
+
+                <div className="flex flex-col items-start justify-start w-1/4 gap-2">
+                  <h3 className="lg:text-lg border-b-2  border-green-500 text-[15px]">
+                    Time Complexity
+                  </h3>
+                  <div className="flex flex-col gap-2">
+                    <p className="flex w-full text-justify lg:text-sm text-[9px] text-gray-700 dark:text-gray-500">
+                      <span className="lg:w-28 w-14">Worst Case:</span>
+                      <span>
+                        {sortingAlgorithmsData[selectedAlgorithm].worstCase}
+                      </span>
+                    </p>
+
+                    <p className="flex w-full lg:text-sm text-[9px] text-gray-700 dark:text-gray-500">
+                      <span className="lg:w-28 w-14">Average Case:</span>
+                      <span>
+                        {sortingAlgorithmsData[selectedAlgorithm].averageCase}
+                      </span>
+                    </p>
+
+                    <p className="flex w-full lg:text-sm text-[9px] text-gray-700 dark:text-gray-500">
+                      <span className="lg:w-28 w-14">Best Case:</span>
+                      <span>
+                        {sortingAlgorithmsData[selectedAlgorithm].bestCase}
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           {/* -----------------------------------------BARS------------------ */}
