@@ -66,7 +66,7 @@ export default function Home() {
           className="flex max-w-[1020px] w-full flex-col lg:px-0 px-4">
           <div className="h-[66px] relative flex items-center justify-between w-full">
             <h1 className="text-violet-800 lg:text-xl font-semibold lg:font-semibold dark:text-gray-300">
-              Algo Sorting Visulizer
+              Sorting Algo Visulizer
               <span className=" dark:text-violet-800 text-gray-500">/.</span>
             </h1>
             <div className="flex items-center justify-center gap-4">
